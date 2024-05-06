@@ -1,5 +1,28 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 02/24/2024 04:55:33 PM
+// Design Name: 
+// Module Name: cordic_multiplier_2
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
 
-module cordic_multiplier (
+
+
+
+module cordic_multiplier_2 (
     input wire clk,          // Clock input
     input wire rst,          // Reset input
     input signed [21:0] x,   // Multiplicant (22-bit signed fixed-point)
@@ -32,9 +55,9 @@ module cordic_multiplier (
             z_reg <= 0;
             i <= 0;
             z<=0;
-            
+           
             done <= 0;
-        end else if (x!=0) begin
+        end else begin
             case (state)
                 IDLE: begin
                     // Initialize registers
@@ -44,11 +67,12 @@ module cordic_multiplier (
                     i <= -18;
                     // Move to CALC state
                     state <= CALC;
+                    done<=0;
                 end
                 CALC: begin
                     // CORDIC multiplication
-                    
-                    
+                   
+                   
                     if (i < 18) begin
                    
                         if (x_reg >= 0) begin
@@ -58,7 +82,7 @@ module cordic_multiplier (
                             x_reg <= x_reg + (1<<-i);
                             z_reg <= z_reg - (y_reg <<- i);
                         end
-                        
+                       
                        
                         i <= i + 1;
                     end else begin
@@ -68,17 +92,14 @@ module cordic_multiplier (
                 end
                 DONE: begin
                     // Output result
-                    z ={ z_reg[33:24],z_reg[23:12]};
-//                    res=z[43:23];
-//                    res1=z[20:0];
-                    done = 1;
+                     z <={ z_reg[33:24],z_reg[23:12]};
+                    done <= 1;
                     // Reset state
-                    state = IDLE;
+                    state <= IDLE;
                 end
             endcase
         end
-          else z =0;
-      
     end
 
 endmodule
+
