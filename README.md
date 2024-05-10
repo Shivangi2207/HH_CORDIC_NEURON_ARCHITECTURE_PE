@@ -4,6 +4,9 @@
 <summary>Implemented HH NEURON CORDIC ARCHITECTURE</summary>
 First we implemented all the three division, multiplication and exponent modules independently and then used these modules to implement HH neuron cordic architecture.
 
+HH NEURON ARCHITECTURE
+
+![image](https://github.com/Shivangi2207/HH_CORDIC_NEURON_ARCHITECTURE_PE/assets/140998647/8b1db13f-a110-4514-90d4-f6d7ea4a3c52)
 
 
 ## Functional verification of multiplication module
@@ -25,9 +28,21 @@ Resource utilisation
 
 ## Functional verification of exponent module
 
+![image](https://github.com/Shivangi2207/HH_CORDIC_NEURON_ARCHITECTURE_PE/assets/140998647/6ad52a95-ade9-465f-9665-52c0e76818dd)
+
+
+Resource utilisation
+
+![image](https://github.com/Shivangi2207/HH_CORDIC_NEURON_ARCHITECTURE_PE/assets/140998647/c0126dd5-2382-4107-b0b0-04c35cd7e9d4)
 
 ## Result we got from HH Neuron archutecture
 
+![image](https://github.com/Shivangi2207/HH_CORDIC_NEURON_ARCHITECTURE_PE/assets/140998647/9059767e-3a58-4d0d-9df7-534544eff33d)
+
+![image](https://github.com/Shivangi2207/HH_CORDIC_NEURON_ARCHITECTURE_PE/assets/140998647/bd38f97d-6fa8-4bce-b1c6-20a4f0d79b9f)
 
 
+## Schematic
+
+![image](https://github.com/Shivangi2207/HH_CORDIC_NEURON_ARCHITECTURE_PE/assets/140998647/6d1103b7-5dc0-4c65-8e89-2fc275bb0593)
 
