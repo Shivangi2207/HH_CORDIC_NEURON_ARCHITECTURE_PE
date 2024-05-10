@@ -21,6 +21,7 @@ integer i, j;
 reg[4:0] k, n;
 reg [11:0] x_f;
 reg flag;
+integer k_f;
 
 //checking variables
 reg signed [21:0] x_frac_2;
@@ -106,6 +107,7 @@ always @(posedge clk or posedge rst) begin
            //     state <= IDLE;
                 exp_result <= 0;
                 do <= 0;
+          //      k_f=0;
                 if (x<0) 
                 begin
                     x_int <= x[21:12]+1;
@@ -114,6 +116,7 @@ always @(posedge clk or posedge rst) begin
                     x_int <= x[21:12];
         
                 x_frac <= {10'd0, x[11:0]};
+                
                 state <= CALC;
             end
 
@@ -122,7 +125,7 @@ always @(posedge clk or posedge rst) begin
                 if(x_int == 0) begin
                     done_2 =1;
                     mul_3 = 22'd4096;
-                end
+                 end
                 for (i = -N; i <= -2; i = i + 1) begin
                     if (x_frac > a[-i]) begin
                         x_frac = x_frac - a[-i];
@@ -142,19 +145,27 @@ always @(posedge clk or posedge rst) begin
                     end
                 end
 
-                while (x_int != 0) begin
+               for(k_f=0;k_f<20;k_f=k_f+1) begin
+                if (x_int != 0 ) begin
                     if (x < 0) begin
                         r1 = mul_3 * 22'd1506; // Divide by 'e' (2.718)
                         mul_3 = {r1[33:12]};
                         x_int = x_int + 10'd1;
+                   //     k_f=k_f+1;
                     end else begin
                         r1 = mul_3 * 22'd11132; // Multiply by 'e' (2.718)
                         mul_3 = {r1[33:12]};
                         x_int = x_int - 10'd1;
+                  //      k_f=k_f+1;
                     end
-                    if(x_int == 0)
+                    if(x_int == 0) begin
                     done_2 =1;
+                 //   k_f=20;
+                    
+                    end
                 end
+                end
+                
                 if(done)begin
                  if (k == 5'd0) begin
                         frac_out = 22'd4096;
