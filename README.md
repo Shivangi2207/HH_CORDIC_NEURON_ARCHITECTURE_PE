@@ -46,3 +46,8 @@ Resource utilisation
 
 ![image](https://github.com/Shivangi2207/HH_CORDIC_NEURON_ARCHITECTURE_PE/assets/140998647/6d1103b7-5dc0-4c65-8e89-2fc275bb0593)
 
+## Utilisation
+
+![image](https://github.com/Shivangi2207/HH_CORDIC_NEURON_ARCHITECTURE_PE/assets/140998647/b999b9d8-f195-427f-b806-fcfd0b9ced84)
+
+
