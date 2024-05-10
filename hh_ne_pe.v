@@ -20,23 +20,43 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+//module hh_neuron (
+//    input clk,
+//    input reset
+//);
+
 module hh_neuron (
     input clk,
-    input reset
+    input reset,
+    input [21:0] dt,
+    input [21:0] C,
+//    input [21:0] g_Na,
+//    input [21:0] g_K,
+//    input [21:0] g_L,
+//    input [21:0] V_Na,
+//    input [21:0] V_K,
+//    input [21:0] V_L,
+    input [21:0] e,
+    input [21:0] a,
+    input [21:0] I_inj,
+    output reg [21:0] m_next,
+    output reg [21:0] h_next,
+    output reg [21:0] n_next,
+    output reg [21:0] V_next
 );
 
 
-parameter dt = 22'd40; 
-parameter C = 22'd40;  
+//parameter dt = 22'd40; 
+//parameter C = 22'd40;  
 parameter g_Na = 22'd491;
 parameter g_K = 22'd147;   
 parameter g_L = 22'd1;
 parameter V_Na = 22'd225; //0.05512
 parameter V_K = -22'd295;  //-72.14
 parameter V_L = -22'd202;//-49.42
-parameter e = 2.7182818;
-parameter a = 0.1;
-parameter I_inj = 22'd4; //1mA
+//parameter e = 2.7182818;
+//parameter a = 0.1;
+//parameter I_inj = 22'd4; //1mA
 
 integer i =0;
 
@@ -52,7 +72,7 @@ reg [21:0] in_1, in_2, in_3, in_4, in_5, in_6, in_7, in_8, in_9, in_10;
 wire [21:0] ou_1, ou_2, ou_3, ou_4, ou_5, ou_6, ou_n_dup;
 
 reg [21:0] ou_a, ou_b, ou_c, ou_d, ou_e, ou_f, ou_g, ou_h, ou_i, ou_j, ou_k, ou_l, ou_m, ou_n, ou_o, ou_p, ou_q, ou_r, ou_s, ou_t, ou_u, ou_v, ou_w, ou_x, ou_y, ou_z, ou_aa, ou_ab, ou_ac, ou_ad, ou_ae, ou_af, ou_ag, ou_ah, ou_ai, ou_aj;
-reg [21:0] m_next, h_next, n_next, V_next;
+//reg [21:0] m_next, h_next, n_next, V_next;
 
 reg f=1;
 cordic_multiplier_2  M0(
